@@ -36,6 +36,13 @@ function detectLanguage(message) {
     return ['en', 'tl'].includes(detectedLanguage) ? detectedLanguage : 'en';
 }
 
+function detectBlockWords(message) {
+    const blockKeywords = ['password','birthday'];
+    const lowerMessage = message.toLowerCase();
+
+    if(blockKeywords.some(word => lowerMessage.includes(word))) return true;
+}
+
 app.post('/api/chat', async (req, res) => {
     const { message } = req.body;
 
@@ -43,16 +50,24 @@ app.post('/api/chat', async (req, res) => {
         return res.status(400).json({ answer: 'Please provide a message.' });
     }
 
-    const language = detectLanguage(message);
-    const response = await manager.process(language, message);
+    const block = detectBlockWords(message);
 
-    res.json({
-        language,
-        answer: response.answer || 
-            (language === 'tl'
-                ? "Hmm... Hindi ko sigurado 'yan. Subukan mong magtanong tungkol sa aking mga hilig, kasanayan, o proyekto!"
-                : "Hmm... I'm not sure about that. Try asking about my hobbies, skills, or projects!")
-    });
+    if(block) {
+        res.json({
+            message : "Sorry, Nhoriel doesn't provide this information due to personal privacy."
+        })
+    } else {
+        const language = detectLanguage(message);
+        const response = await manager.process(language, message);
+    
+        res.json({
+            language,
+            answer: response.answer || 
+                (language === 'tl'
+                    ? "Hmm... Hindi ko sigurado 'yan. Subukan mong magtanong tungkol sa aking mga hilig, kasanayan, o proyekto!"
+                    : "Hmm... I'm not sure about that. Try asking about my hobbies, skills, or projects!")
+        });
+    }
 });
 
 // Start Server
