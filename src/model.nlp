@@ -1,0 +1,519 @@
+{
+  "settings": {
+    "languages": [
+      "en",
+      "tl"
+    ],
+    "modelFileName": "./src/model.nlp",
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en",
+      "tl"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "hello": {
+            "intent": "greeting.hello",
+            "domain": "default"
+          },
+          "hi": {
+            "intent": "greeting.hello",
+            "domain": "default"
+          },
+          "good,morn": {
+            "intent": "greeting.morning",
+            "domain": "default"
+          },
+          "afternoon,good": {
+            "intent": "greeting.afternoon",
+            "domain": "default"
+          },
+          "even,good": {
+            "intent": "greeting.evening",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting.hello": "default",
+          "greeting.morning": "default",
+          "greeting.afternoon": "default",
+          "greeting.evening": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "hello",
+            "intent": "greeting.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "hi",
+            "intent": "greeting.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "good morning",
+            "intent": "greeting.morning"
+          },
+          {
+            "domain": "default",
+            "utterance": "good afternoon",
+            "intent": "greeting.afternoon"
+          },
+          {
+            "domain": "default",
+            "utterance": "good evening",
+            "intent": "greeting.evening"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "hello": 1,
+              "hi": 1,
+              "good": 1,
+              "morn": 1,
+              "afternoon": 1,
+              "even": 1
+            },
+            "intents": {
+              "greeting.hello": 1,
+              "greeting.morning": 1,
+              "greeting.afternoon": 1,
+              "greeting.evening": 1
+            },
+            "intentFeatures": {
+              "greeting.hello": {
+                "hello": 1,
+                "hi": 1
+              },
+              "greeting.morning": {
+                "good": 1,
+                "morn": 1
+              },
+              "greeting.afternoon": {
+                "good": 1,
+                "afternoon": 1
+              },
+              "greeting.evening": {
+                "good": 1,
+                "even": 1
+              }
+            },
+            "featuresToIntent": {
+              "hello": [
+                "greeting.hello"
+              ],
+              "hi": [
+                "greeting.hello"
+              ],
+              "good": [
+                "greeting.morning",
+                "greeting.afternoon",
+                "greeting.evening"
+              ],
+              "morn": [
+                "greeting.morning"
+              ],
+              "afternoon": [
+                "greeting.afternoon"
+              ],
+              "even": [
+                "greeting.evening"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "hello",
+                "hi",
+                "good",
+                "morn",
+                "afternoon",
+                "even"
+              ],
+              "intents": [
+                "greeting.hello",
+                "greeting.morning",
+                "greeting.afternoon",
+                "greeting.evening"
+              ],
+              "perceptrons": [
+                [
+                  8.256558418273926,
+                  8.263731002807617,
+                  -4.508626461029053,
+                  -1.5194743871688843,
+                  -1.5001105070114136,
+                  -1.487941026687622,
+                  6.007461761001694
+                ],
+                [
+                  -0.7453399300575256,
+                  -0.7426913976669312,
+                  2.9997918605804443,
+                  10.350516319274902,
+                  -3.6869728565216064,
+                  -3.6695375442504883,
+                  0.7528267602839077
+                ],
+                [
+                  -0.7517291903495789,
+                  -0.749562680721283,
+                  3.0081512928009033,
+                  -3.6556689739227295,
+                  10.350189208984375,
+                  -3.687116861343384,
+                  0.7528567952174238
+                ],
+                [
+                  -0.7621731162071228,
+                  -0.7574600577354431,
+                  3.014167070388794,
+                  -3.6747183799743652,
+                  -3.655256748199463,
+                  10.350733757019043,
+                  0.7497175842777007
+                ]
+              ]
+            }
+          }
+        }
+      },
+      "tl": {
+        "settings": {
+          "locale": "tl",
+          "trainByDomain": false,
+          "tag": "domain-manager-tl",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "musta": {
+            "intent": "greeting.hello",
+            "domain": "default"
+          },
+          "aga,ganda": {
+            "intent": "greeting.morning",
+            "domain": "default"
+          },
+          "ganda,hapon": {
+            "intent": "greeting.afternoon",
+            "domain": "default"
+          },
+          "gabi,ganda": {
+            "intent": "greeting.evening",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greeting.hello": "default",
+          "greeting.morning": "default",
+          "greeting.afternoon": "default",
+          "greeting.evening": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "kamusta",
+            "intent": "greeting.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "magandang umaga",
+            "intent": "greeting.morning"
+          },
+          {
+            "domain": "default",
+            "utterance": "magandang hapon",
+            "intent": "greeting.afternoon"
+          },
+          {
+            "domain": "default",
+            "utterance": "magandang gabi",
+            "intent": "greeting.evening"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "tl",
+              "tag": "nlu-tl",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "musta": 1,
+              "ganda": 1,
+              "aga": 1,
+              "hapon": 1,
+              "gabi": 1
+            },
+            "intents": {
+              "greeting.hello": 1,
+              "greeting.morning": 1,
+              "greeting.afternoon": 1,
+              "greeting.evening": 1
+            },
+            "intentFeatures": {
+              "greeting.hello": {
+                "musta": 1
+              },
+              "greeting.morning": {
+                "ganda": 1,
+                "aga": 1
+              },
+              "greeting.afternoon": {
+                "ganda": 1,
+                "hapon": 1
+              },
+              "greeting.evening": {
+                "ganda": 1,
+                "gabi": 1
+              }
+            },
+            "featuresToIntent": {
+              "musta": [
+                "greeting.hello"
+              ],
+              "ganda": [
+                "greeting.morning",
+                "greeting.afternoon",
+                "greeting.evening"
+              ],
+              "aga": [
+                "greeting.morning"
+              ],
+              "hapon": [
+                "greeting.afternoon"
+              ],
+              "gabi": [
+                "greeting.evening"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "tl",
+                "tag": "nlu-tl",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "musta",
+                "ganda",
+                "aga",
+                "hapon",
+                "gabi"
+              ],
+              "intents": [
+                "greeting.hello",
+                "greeting.morning",
+                "greeting.afternoon",
+                "greeting.evening"
+              ],
+              "perceptrons": [
+                [
+                  10.427499771118164,
+                  -2.843290328979492,
+                  -0.9557554721832275,
+                  -0.9476107358932495,
+                  -0.9387525320053101,
+                  3.794911497965104
+                ],
+                [
+                  -0.9373131990432739,
+                  2.8499059677124023,
+                  10.316423416137695,
+                  -3.744208335876465,
+                  -3.727571487426758,
+                  0.9535105261221497
+                ],
+                [
+                  -0.9468199014663696,
+                  2.8567614555358887,
+                  -3.7158403396606445,
+                  10.316191673278809,
+                  -3.7443339824676514,
+                  0.9543006781356489
+                ],
+                [
+                  -0.9557039141654968,
+                  2.8599724769592285,
+                  -3.7343204021453857,
+                  -3.7159557342529297,
+                  10.316182136535645,
+                  0.954649713533975
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "hello"
+      ],
+      [
+        "en",
+        "hi"
+      ],
+      [
+        "en",
+        "good morning"
+      ],
+      [
+        "en",
+        "good afternoon"
+      ],
+      [
+        "en",
+        "good evening"
+      ],
+      [
+        "tl",
+        "kamusta"
+      ],
+      [
+        "tl",
+        "magandang umaga"
+      ],
+      [
+        "tl",
+        "magandang hapon"
+      ],
+      [
+        "tl",
+        "magandang gabi"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greeting.hello": [
+          {
+            "answer": "Hello! 👋 How can I help you today?"
+          }
+        ],
+        "greeting.morning": [
+          {
+            "answer": "Good morning! ☀️ Hope you have a great day!"
+          }
+        ],
+        "greeting.afternoon": [
+          {
+            "answer": "Good afternoon! 🌤️ How can I assist you?"
+          }
+        ],
+        "greeting.evening": [
+          {
+            "answer": "Good evening! 🌙 Relax and feel free to ask me anything."
+          }
+        ]
+      },
+      "tl": {
+        "greeting.hello": [
+          {
+            "answer": "Kamusta! 😊 Ano maitutulong ko sayo?"
+          }
+        ],
+        "greeting.morning": [
+          {
+            "answer": "Magandang umaga! ☀️ Ingat ka ngayong araw!"
+          }
+        ],
+        "greeting.afternoon": [
+          {
+            "answer": "Magandang hapon! 🌤️ Ano po ang maitutulong ko?"
+          }
+        ],
+        "greeting.evening": [
+          {
+            "answer": "Magandang gabi! 🌙 Ano pong gusto mong malaman?"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}
