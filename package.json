@@ -1,15 +1,16 @@
 {
   "dependencies": {
+    "@huggingface/inference": "^3.5.2",
     "cors": "^2.8.5",
     "eld": "^1.0.1",
     "express": "^4.21.2",
     "node-nlp": "^5.0.0-alpha.5"
   },
-    "type": "module",
-    "devDependencies": {
+  "type": "module",
+  "devDependencies": {
     "nodemon": "^3.1.9"
   },
-    "scripts": {
+  "scripts": {
     "start": "nodemon server.js"
   }
 }

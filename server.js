@@ -23,7 +23,7 @@ eld.dynamicLangSubset(['en', 'tl']);
 
 // Manual keyword detection for common greetings
 function detectLanguage(message) {
-    const keywordsEN = ['hello', 'hi', 'how are you'];
+    const keywordsEN = ['hello', 'hi', 'how are you','afternoon','yo'];
     const keywordsTL = ['kamusta', 'kamusta ka'];
 
     const lowerMessage = message.toLowerCase();

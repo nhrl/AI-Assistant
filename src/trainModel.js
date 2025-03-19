@@ -1,4 +1,7 @@
 import { NlpManager } from 'node-nlp';
+import greetings from './greetings.js';
+import school from './school.js';
+import tech from './tech.js';
 
 console.log('🚀 Starting training script...');
 
@@ -9,37 +12,15 @@ const manager = new NlpManager({
 
 
 // Add Training Data
-
-// English Greetings
-manager.addDocument('en', 'hello', 'greeting.hello');
-manager.addDocument('en', 'hi', 'greeting.hello');
-manager.addDocument('en', 'good morning', 'greeting.morning');
-manager.addDocument('en', 'good afternoon', 'greeting.afternoon');
-manager.addDocument('en', 'good evening', 'greeting.evening');
-
-manager.addAnswer('en', 'greeting.hello', 'Hello! 👋 How can I help you today?');
-manager.addAnswer('en', 'greeting.morning', 'Good morning! ☀️ Hope you have a great day!');
-manager.addAnswer('en', 'greeting.afternoon', 'Good afternoon! 🌤️ How can I assist you?');
-manager.addAnswer('en', 'greeting.evening', 'Good evening! 🌙 Relax and feel free to ask me anything.');
-
-// Tagalog Greetings
-manager.addDocument('tl', 'kamusta', 'greeting.hello');
-manager.addDocument('tl', 'magandang umaga', 'greeting.morning');
-manager.addDocument('tl', 'magandang hapon', 'greeting.afternoon');
-manager.addDocument('tl', 'magandang gabi', 'greeting.evening');
-
-manager.addAnswer('tl', 'greeting.hello', 'Kamusta! 😊 Ano maitutulong ko sayo?');
-manager.addAnswer('tl', 'greeting.morning', 'Magandang umaga! ☀️ Ingat ka ngayong araw!');
-manager.addAnswer('tl', 'greeting.afternoon', 'Magandang hapon! 🌤️ Ano po ang maitutulong ko?');
-manager.addAnswer('tl', 'greeting.evening', 'Magandang gabi! 🌙 Ano pong gusto mong malaman?');
-
-//Information
+greetings(manager);
+school(manager);
+tech(manager);
 
 
-
-
-
-
+//Work Experience
+//About Me
+//Projects
+//How I build this bot
 
 trainAndSaveModel();
 
