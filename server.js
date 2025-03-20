@@ -70,6 +70,10 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
+app.get('/api/status', (req, res) => {
+    res.status(200).json({ status: 'online' });
+});
+
 // Start Server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`AI API running on port ${PORT} 🚀`));
