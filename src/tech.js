@@ -8,7 +8,11 @@ const tech = (manager) => {
 
     // Responses for Tech Skills
     manager.addAnswer('en', 'skills.tech', 
-        "I know React for building user interfaces, Node.js for handling backend logic, and TypeScript for writing safer and more organized code."
+        "I'm skilled in React, Next.js, Node.js, and TypeScript. I also have experience with Angular, Laravel, and MySQL for building full-stack applications."
+    );
+
+    manager.addAnswer('en', 'skills.tech', 
+        "I build web applications using React, Next.js, Node.js, and Tailwind CSS. I also work with APIs, MySQL, PostgreSQL, and deploy projects using Vercel and Supabase."
     );
 
     // Frameworks

@@ -2,6 +2,10 @@ import { NlpManager } from 'node-nlp';
 import greetings from './greetings.js';
 import school from './school.js';
 import tech from './tech.js';
+import built from './built.js';
+import aboutMe from './aboutMe.js';
+import experience from './experience.js';
+import project from './project.js';
 
 console.log('🚀 Starting training script...');
 
@@ -15,12 +19,11 @@ const manager = new NlpManager({
 greetings(manager);
 school(manager);
 tech(manager);
+built(manager);
+aboutMe(manager);
+experience(manager);
+project(manager);
 
-
-//Work Experience
-//About Me
-//Projects
-//How I build this bot
 
 trainAndSaveModel();
 
